@@ -5,6 +5,7 @@
 #include"FillArray.h"
 #include"Location.h"
 #include"Output.h"
+#include"Battleship.h"
 
 using namespace std;
 
@@ -62,9 +63,9 @@ int main()
 
 	Fill(computer);
 
-	//ManuallyLocation(computer);
+	ManuallyLocation(computer);
 	
-	RandomLocation(computer);
+	//RandomLocation(computer);
 
 	Output(computer, computer);
 

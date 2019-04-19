@@ -14,52 +14,53 @@ void ManuallyLocation(int arr[][10])
 	char tmpXY[255];
 	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	cout << "   ";
-	for (int i = 65; i < 75; i++)
-	{
-		cout << char(i) << "  ";
-	}
-	cout << endl;
-
 	for (int i = 0; i < 10; i++)
 	{
-		if (i < 9)
+		system("cls");
+		cout << "   ";
+		for (int i = 65; i < 75; i++)
 		{
-			cout << i + 1 << "  ";
-		}
-		else
-		{
-			cout << i + 1 << " ";
-		}
-
-		for (int j = 0; j < 10; j++)
-		{
-			if (arr[i][j] == 0)
-			{
-				SetConsoleTextAttribute(console, 9);
-				cout << "=";
-				SetConsoleTextAttribute(console, 7);
-			}
-			else if (arr[i][j] == 1)
-			{
-				SetConsoleTextAttribute(console, 2);
-				cout << "X";
-				SetConsoleTextAttribute(console, 7);
-			}
-			else if (arr[i][j] == 2)
-			{
-				SetConsoleTextAttribute(console, 14);
-				cout << "*";
-				SetConsoleTextAttribute(console, 7);
-			}
-			cout << "  ";
+			cout << char(i) << "  ";
 		}
 		cout << endl;
-		cout << endl;
-	}
 
-	for (int i = 0; i < 10; i++)
-	{
+		for (int i = 0; i < 10; i++)
+		{
+			if (i < 9)
+			{
+				cout << i + 1 << "  ";
+			}
+			else
+			{
+				cout << i + 1 << " ";
+			}
+
+			for (int j = 0; j < 10; j++)
+			{
+				if (arr[i][j] == 0)
+				{
+					SetConsoleTextAttribute(console, 9);
+					cout << "=";
+					SetConsoleTextAttribute(console, 7);
+				}
+				else if (arr[i][j] == 1)
+				{
+					SetConsoleTextAttribute(console, 2);
+					cout << "X";
+					SetConsoleTextAttribute(console, 7);
+				}
+				else if (arr[i][j] == 2)
+				{
+					SetConsoleTextAttribute(console, 14);
+					cout << "*";
+					SetConsoleTextAttribute(console, 7);
+				}
+				cout << "  ";
+			}
+			cout << endl;
+			cout << endl;
+		}
+
 		if (i == 0)
 		{
 			cout << "Slect ship location\n0. XXXX\n1.X\n  X\n  X\n  X" << endl;
@@ -86,20 +87,34 @@ void ManuallyLocation(int arr[][10])
 			cout << "Enter the coordinates of the starting point (Example A1)  ";
 			cin >> tmpXY;
 
+			if (tmpXY[2]!='\0')
+			{
+				i--;
+				SetConsoleTextAttribute(console, 12);
+				cout << "It is impossible to place a ship";
+				SetConsoleTextAttribute(console, 7);
+				cin.get();
+				cin.get();
+				continue;
+			}
 
 			Y = (int(tmpXY[1]) - 49);
 			X = (int(tmpXY[0]) - 65);
 
-			cout << X << Y;
-
-
-
+						
 			if (i == 0)
 			{
-				if ((X == 7) || (X == 8) || (X == 9))
+				if ((X < 0) || (X > 6)|| (Y < 0) || (Y > 9))
 				{
 					i--;
+					
+					SetConsoleTextAttribute(console, 12);
+					cout << "It is impossible to place a ship";
+					SetConsoleTextAttribute(console, 7);
+					cin.get();
+					cin.get();
 					continue;
+					
 				}
 				else
 				{
@@ -200,7 +215,7 @@ void ManuallyLocation(int arr[][10])
 		//		}
 		//	}
 		//}
-
+		system("cls");
 	}
 	system("cls");
 }
