@@ -86,31 +86,31 @@ void Output(int arrOne[][10], int arrTwo[][10])
 		}
 		for (int j = 0; j < 10; j++)
 		{
-			if (arrOne[i][j] == 0)
+			if (arrTwo[i][j] == 0)
 			{
 				SetConsoleTextAttribute(console, 9);
 				cout << "=";
 				SetConsoleTextAttribute(console, 7);
 			}
-			else if (arrOne[i][j] == 1)
+			else if (arrTwo[i][j] == 1)
 			{
 				SetConsoleTextAttribute(console, 2);
 				cout << "X";
 				SetConsoleTextAttribute(console, 7);
 			}
-			else if (arrOne[i][j] == 2)
+			else if (arrTwo[i][j] == 2)
 			{
 				SetConsoleTextAttribute(console, 9);
 				cout << "=";
 				SetConsoleTextAttribute(console, 7);
 			}
-			else if (arrOne[i][j] == 3)
+			else if (arrTwo[i][j] == 3)
 			{
 				SetConsoleTextAttribute(console, 7);
 				cout << "*";
 				SetConsoleTextAttribute(console, 7);
 			}
-			else if (arrOne[i][j] == 4)
+			else if (arrTwo[i][j] == 4)
 			{
 				SetConsoleTextAttribute(console, 12);
 				cout << "X";

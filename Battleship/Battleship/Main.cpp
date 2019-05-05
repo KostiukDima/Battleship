@@ -20,7 +20,7 @@ int main()
 	int computer[10][10];
 	int player[10][10];
 
-	/*int choise = 0;
+	int choise = 0;
 	bool exit = false;
 
 	while (exit!=true)
@@ -59,15 +59,15 @@ int main()
 			cout << "Wrong choice try again" << endl;
 			SetConsoleTextAttribute(console, 7);			
 		}
-	}*/
+	}
 
-	Fill(computer);
+	//Fill(computer);
 
-	ManuallyLocation(computer);
-	
-	//RandomLocation(computer);
+	//ManuallyLocation(computer);
+	//
+	////RandomLocation(computer);
 
-	Output(computer, computer);
+	//Output(computer, computer);
 
 	system("pause");
 	return 0;

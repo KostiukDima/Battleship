@@ -78,16 +78,30 @@ void ManuallyLocation(int arr[][10])
 		}
 		if (i == 6 || i == 7 || i == 8 || i == 9)
 		{
-			cout << "Slect ship location\n0. X\n1.X" << endl;
-			cin >> location;
+			location=0;
 		}
 
 		if (location == 0)
 		{
-			cout << "Enter the coordinates of the starting point (Example A1)  ";
-			cin >> tmpXY;
+			
+			if (i == 6 || i == 7 || i == 8 || i == 9)
+			{
+				cout << "Enter the starting point coordinates for the X ship (Example A1)  ";
+				cin >> tmpXY;
+			}
+			else 
+			{
+				cout << "Enter the coordinates of the starting point (Example A1)  ";
+				cin >> tmpXY;
+			}
+			
 
-			if (tmpXY[2]!='\0')
+			if (int(tmpXY[1]) == 49 && int(tmpXY[2]) == 48)
+			{
+				Y = 9;
+				X = (int(tmpXY[0]) - 65);
+			}
+			else if  (tmpXY[2] != '\0')
 			{
 				i--;
 				SetConsoleTextAttribute(console, 12);
@@ -97,10 +111,11 @@ void ManuallyLocation(int arr[][10])
 				cin.get();
 				continue;
 			}
-
-			Y = (int(tmpXY[1]) - 49);
-			X = (int(tmpXY[0]) - 65);
-
+			else
+			{				
+				Y = (int(tmpXY[1]) - 49);
+				X = (int(tmpXY[0]) - 65);
+			}
 						
 			if (i == 0)
 			{
@@ -126,6 +141,11 @@ void ManuallyLocation(int arr[][10])
 				if ((X == 8) || (X == 9) || (arr[Y][X] == 2) || (arr[Y][X + 1] == 2) || (arr[Y][X + 2] == 2) || (arr[Y][X] == 1) || (arr[Y][X + 1] == 1) || (arr[Y][X + 2] == 1) || (arr[Y][X] != 0))
 				{
 					i--;
+					SetConsoleTextAttribute(console, 12);
+					cout << "It is impossible to place a ship";
+					SetConsoleTextAttribute(console, 7);
+					cin.get();
+					cin.get();
 					continue;
 				}
 				else
@@ -139,6 +159,11 @@ void ManuallyLocation(int arr[][10])
 				if ((X == 9) || (arr[Y][X] == 2) || (arr[Y][X + 1] == 2) || (arr[Y][X] == 1) || (arr[Y][X + 1] == 1) || (arr[Y][X] != 0))
 				{
 					i--;
+					SetConsoleTextAttribute(console, 12);
+					cout << "It is impossible to place a ship";
+					SetConsoleTextAttribute(console, 7);
+					cin.get();
+					cin.get();
 					continue;
 				}
 				else
@@ -151,6 +176,11 @@ void ManuallyLocation(int arr[][10])
 				if ((arr[Y][X] == 2) || (arr[Y][X] == 1) || (arr[Y][X] != 0))
 				{
 					i--;
+					SetConsoleTextAttribute(console, 12);
+					cout << "It is impossible to place a ship";
+					SetConsoleTextAttribute(console, 7);
+					cin.get();
+					cin.get();
 					continue;
 				}
 				else
@@ -159,62 +189,86 @@ void ManuallyLocation(int arr[][10])
 				}
 			}
 		}
-		//if (location == 1)
-		//{
-		//	Y = rand() % 10;
-		//	X = rand() % 10;
+		if (location == 1)
+		{
+		
+			cout << "Enter the coordinates of the starting point (Example A1)  ";
+			cin >> tmpXY;
 
-		//	if (i == 0)
-		//	{
-		//		if ((Y == 7) || (Y == 8) || (Y == 9))
-		//		{
-		//			i--;
+			if (int(tmpXY[1]) == 49 && int(tmpXY[2]) == 48)
+			{
+				Y = 9;
+				X = (int(tmpXY[0]) - 65);
+			}
+			else if (tmpXY[2] != '\0')
+			{
+				i--;
+				SetConsoleTextAttribute(console, 12);
+				cout << "It is impossible to place a ship";
+				SetConsoleTextAttribute(console, 7);
+				cin.get();
+				cin.get();
+				continue;
+			}
+			else
+			{
+				Y = (int(tmpXY[1]) - 49);
+				X = (int(tmpXY[0]) - 65);
+			}
+			if (i == 0)
+			{
+				if ((Y == 7) || (Y == 8) || (Y == 9))
+				{
+					i--;
+					SetConsoleTextAttribute(console, 12);
+					cout << "It is impossible to place a ship";
+					SetConsoleTextAttribute(console, 7);
+					cin.get();
+					cin.get();
+					continue;
+				}
+				else
+				{
+					FillVerticallyFour(arr, Y, X);
+				}
+			}
+			if (i == 1 || i == 2)
+			{
+				if ((Y == 8) || (Y == 9) || (arr[Y][X] == 2) || (arr[Y + 1][X] == 2) || (arr[Y + 2][X] == 2) || (arr[Y][X] == 1) || (arr[Y + 1][X] == 1) || (arr[Y + 2][X] == 1) || (arr[Y][X] != 0))
+				{
+					i--;
+					SetConsoleTextAttribute(console, 12);
+					cout << "It is impossible to place a ship";
+					SetConsoleTextAttribute(console, 7);
+					cin.get();
+					cin.get();
+					continue;
+				}
+				else
+				{
+					FillVerticallyThree(arr, Y, X);
+				}
 
-		//			continue;
-		//		}
-		//		else
-		//		{
-		//			FillVerticallyFour(arr, Y, X);
-		//		}
-		//	}
-		//	if (i == 1 || i == 2)
-		//	{
-		//		if ((Y == 8) || (Y == 9) || (arr[Y][X] == 2) || (arr[Y + 1][X] == 2) || (arr[Y + 2][X] == 2) || (arr[Y][X] == 1) || (arr[Y + 1][X] == 1) || (arr[Y + 2][X] == 1) || (arr[Y][X] != 0))
-		//		{
-		//			i--;
-		//			continue;
-		//		}
-		//		else
-		//		{
-		//			FillVerticallyThree(arr, Y, X);
-		//		}
-
-		//	}
-		//	if (i == 3 || i == 4 || i == 5)
-		//	{
-		//		if ((Y == 9) || (arr[Y][X] == 2) || (arr[Y + 1][X] == 2) || (arr[Y][X] == 1) || (arr[Y + 1][X] == 1) || (arr[Y][X] != 0))
-		//		{
-		//			i--;
-		//			continue;
-		//		}
-		//		else
-		//		{
-		//			FillVerticallyTwo(arr, Y, X);
-		//		}
-		//	}
-		//	if (i == 6 || i == 7 || i == 8 || i == 9)
-		//	{
-		//		if ((arr[Y][X] == 2) || (arr[Y][X] == 1) || (arr[Y][X] != 0))
-		//		{
-		//			i--;
-		//			continue;
-		//		}
-		//		else
-		//		{
-		//			FillVerticallyOne(arr, Y, X);
-		//		}
-		//	}
-		//}
+			}
+			if (i == 3 || i == 4 || i == 5)
+			{
+				if ((Y == 9) || (arr[Y][X] == 2) || (arr[Y + 1][X] == 2) || (arr[Y][X] == 1) || (arr[Y + 1][X] == 1) || (arr[Y][X] != 0))
+				{
+					i--;
+					SetConsoleTextAttribute(console, 12);
+					cout << "It is impossible to place a ship";
+					SetConsoleTextAttribute(console, 7);
+					cin.get();
+					cin.get();
+					continue;
+				}
+				else
+				{
+					FillVerticallyTwo(arr, Y, X);
+				}
+			}
+			
+		}
 		system("cls");
 	}
 	system("cls");

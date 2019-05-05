@@ -37,6 +37,7 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 		{
 			RandomLocation(player);
 			RandomLocation(computer);
+			Output(computer, player);
 		}
 		else if (placement == 2)
 		{
