@@ -44,24 +44,24 @@ void Output(int arrOne[][10], int arrTwo[][10])
 			if (arrOne[i][j] == 0)
 			{
 				SetConsoleTextAttribute(console, 9);
-				cout << "0";
+				cout << "=";
 				SetConsoleTextAttribute(console, 7);
 			}
 			else if (arrOne[i][j] == 1)
 			{
-				SetConsoleTextAttribute(console, 2);
-				cout << "1";
+				SetConsoleTextAttribute(console, 9);
+				cout << "=";
 				SetConsoleTextAttribute(console, 7);
 			}
 			else if (arrOne[i][j] == 2)
 			{
-				SetConsoleTextAttribute(console, 14);
-				cout << "2";
+				SetConsoleTextAttribute(console, 9);
+				cout << "=";
 				SetConsoleTextAttribute(console, 7);
 			}
 			else if (arrOne[i][j] == 3)
 			{
-				SetConsoleTextAttribute(console, 7);
+				SetConsoleTextAttribute(console, 14);
 				cout << "*";
 				SetConsoleTextAttribute(console, 7);
 			}
@@ -106,7 +106,7 @@ void Output(int arrOne[][10], int arrTwo[][10])
 			}
 			else if (arrTwo[i][j] == 3)
 			{
-				SetConsoleTextAttribute(console, 7);
+				SetConsoleTextAttribute(console, 14);
 				cout << "*";
 				SetConsoleTextAttribute(console, 7);
 			}

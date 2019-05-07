@@ -6,6 +6,7 @@
 #include"Location.h"
 #include"Output.h"
 #include"Battleship.h"
+#include"Fire.h"
 
 using namespace std;
 
@@ -25,6 +26,7 @@ int main()
 
 	while (exit!=true)
 	{
+		system("cls");
 		SetConsoleTextAttribute(console, 2);
 		cout << "1. Computer VS Player\n" << endl;
 		SetConsoleTextAttribute(console, 3);
@@ -61,11 +63,11 @@ int main()
 		}
 	}
 
-	//Fill(computer);
+	
 
 	//ManuallyLocation(computer);
 	//
-	////RandomLocation(computer);
+	//RandomLocation(computer);
 
 	//Output(computer, computer);
 

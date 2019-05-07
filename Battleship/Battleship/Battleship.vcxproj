@@ -117,6 +117,7 @@
   <ItemGroup>
     <ClCompile Include="Battleship.cpp" />
     <ClCompile Include="FillArray.cpp" />
+    <ClCompile Include="Fire.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Output.cpp" />
@@ -124,6 +125,7 @@
   <ItemGroup>
     <ClInclude Include="Battleship.h" />
     <ClInclude Include="FillArray.h" />
+    <ClInclude Include="Fire.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Output.h" />
   </ItemGroup>

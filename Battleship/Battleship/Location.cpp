@@ -12,6 +12,8 @@ void ManuallyLocation(int arr[][10])
 	int Y = 0;
 	int X = 0;
 	char tmpXY[255];
+	Fill(arr);
+	
 	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	for (int i = 0; i < 10; i++)
