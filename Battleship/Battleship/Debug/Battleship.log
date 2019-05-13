@@ -1,2 +1,7 @@
-﻿  Main.cpp
+﻿  Battleship.cpp
+  Fire.cpp
+  Main.cpp
+  Output.cpp
+  Создание кода...
+d:\battleship\battleship\battleship\fire.cpp(246): warning C4715: PlayerFire: значение возвращается не при всех путях выполнения
   Battleship.vcxproj -> D:\Battleship\Battleship\Debug\Battleship.exe

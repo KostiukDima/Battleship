@@ -223,14 +223,17 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 			SetConsoleTextAttribute(console, 14);
 			cout << "Fire player " << nameone << endl;
 			SetConsoleTextAttribute(console, 7);
-			hit = PlayerFire(playertwo);
 
-			//Control(playertwo);
+			hit = PlayerFire(playertwo);
+			
+			Control(playertwo);
+			
 			system("cls");
 			OutputTwo(playerone, playertwo, nameone, nametwo);
 				
 			playerOneControl = 0;
 			playerTwoControl = 0;
+			
 			for (int i = 0; i < 10; i++)
 			{
 				for (int j = 0; j < 10; j++)
@@ -245,6 +248,7 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 					}
 				}
 			}
+			
 			if (playerOneControl != 1 || playerTwoControl != 1)
 			{
 				hit = false;
@@ -254,15 +258,20 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 		}
 					
 		hit = true;
+		
 		while (hit == true)
 		{
 			SetConsoleTextAttribute(console, 2);
 			cout << "Fire player " << nametwo << endl;
 			SetConsoleTextAttribute(console, 7);
+		
 			hit = PlayerFire(playerone);
+			
 			Control(playerone);
+			
 			system("cls");
 			OutputTwo(playerone, playertwo, nameone, nametwo);
+			
 			playerOneControl = 0;
 			playerTwoControl = 0;
 
@@ -291,7 +300,7 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 	}
 
 	system("cls");
-	OutputTwo(playerone, playertwo, nameone, nametwo);
+	OutputFinal(playerone, playertwo, nameone, nametwo);
 
 	if (playerOneControl > playerTwoControl)
 	{

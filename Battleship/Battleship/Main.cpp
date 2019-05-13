@@ -20,7 +20,7 @@ int main()
 	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	int computer[10][10];
-	/*int playerone[10][10];
+	int playerone[10][10];
 	int playertwo[10][10];
 
 	int choise = 0;
@@ -63,22 +63,7 @@ int main()
 			cout << "Wrong choice try again" << endl;
 			SetConsoleTextAttribute(console, 7);			
 		}
-	}*/
+	}
 
-	char a[256]="A", b[256]="B";
-
-	Fill(computer);
-	computer[0][0] = 2;
-	computer[1][0] = 4;
-	computer[2][0] = 4;
-	computer[3][0] = 2;
-	computer[4][0] = 4;
-	computer[0][5] = 2;
-	OutputTwo(computer, computer, a, b);
-	cin.get();
-	Control(computer);
-	OutputTwo(computer, computer,a,b );
-
-	system("pause");
 	return 0;
 }

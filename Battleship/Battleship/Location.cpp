@@ -135,7 +135,7 @@ void ManuallyLocation(int arr[][10])
 				}
 				else
 				{
-					FillHorizontallyFour(arr, Y, X);
+					FillHorizontallyFour(arr, Y, X, 1, 2);
 				}
 			}
 			if (i == 1 || i == 2)
@@ -152,7 +152,7 @@ void ManuallyLocation(int arr[][10])
 				}
 				else
 				{
-					FillHorizontallyThree(arr, Y, X);
+					FillHorizontallyThree(arr, Y, X, 1, 2);
 				}
 
 			}
@@ -170,7 +170,7 @@ void ManuallyLocation(int arr[][10])
 				}
 				else
 				{
-					FillHorizontallyTwo(arr, Y, X);
+					FillHorizontallyTwo(arr, Y, X, 1, 2);
 				}
 			}
 			if (i == 6 || i == 7 || i == 8 || i == 9)
@@ -187,7 +187,7 @@ void ManuallyLocation(int arr[][10])
 				}
 				else
 				{
-					FillHorizontallyOne(arr, Y, X);
+					FillHorizontallyOne(arr, Y, X, 1, 2);
 				}
 			}
 		}
@@ -231,7 +231,7 @@ void ManuallyLocation(int arr[][10])
 				}
 				else
 				{
-					FillVerticallyFour(arr, Y, X);
+					FillVerticallyFour(arr, Y, X, 1, 2);
 				}
 			}
 			if (i == 1 || i == 2)
@@ -248,7 +248,7 @@ void ManuallyLocation(int arr[][10])
 				}
 				else
 				{
-					FillVerticallyThree(arr, Y, X);
+					FillVerticallyThree(arr, Y, X, 1, 2);
 				}
 
 			}
@@ -266,7 +266,7 @@ void ManuallyLocation(int arr[][10])
 				}
 				else
 				{
-					FillVerticallyTwo(arr, Y, X);
+					FillVerticallyTwo(arr, Y, X, 1, 2);
 				}
 			}
 			
@@ -303,7 +303,7 @@ void RandomLocation(int sourseArr[][10])
 				}
 				else
 				{
-					FillHorizontallyFour(arr, Y, X);
+					FillHorizontallyFour(arr, Y, X, 1, 2);
 				}
 			}
 			if (i == 1 || i == 2)
@@ -315,7 +315,7 @@ void RandomLocation(int sourseArr[][10])
 				}
 				else
 				{
-					FillHorizontallyThree(arr, Y, X);
+					FillHorizontallyThree(arr, Y, X, 1, 2);
 				}
 
 			}
@@ -328,7 +328,7 @@ void RandomLocation(int sourseArr[][10])
 				}
 				else
 				{
-					FillHorizontallyTwo(arr, Y, X);
+					FillHorizontallyTwo(arr, Y, X, 1, 2);
 				}
 			}
 			if (i == 6 || i == 7 || i == 8 || i == 9)
@@ -340,7 +340,7 @@ void RandomLocation(int sourseArr[][10])
 				}
 				else
 				{
-					FillHorizontallyOne(arr, Y, X);
+					FillHorizontallyOne(arr, Y, X, 1, 2);
 				}
 			}
 		}
@@ -359,7 +359,7 @@ void RandomLocation(int sourseArr[][10])
 				}
 				else
 				{
-					FillVerticallyFour(arr, Y, X);
+					FillVerticallyFour(arr, Y, X, 1, 2);
 				}
 			}
 			if (i == 1 || i == 2)
@@ -371,7 +371,7 @@ void RandomLocation(int sourseArr[][10])
 				}
 				else
 				{
-					FillVerticallyThree(arr, Y, X);
+					FillVerticallyThree(arr, Y, X, 1, 2);
 				}
 
 			}
@@ -384,7 +384,7 @@ void RandomLocation(int sourseArr[][10])
 				}
 				else
 				{
-					FillVerticallyTwo(arr, Y, X);
+					FillVerticallyTwo(arr, Y, X, 1, 2);
 				}
 			}
 			if (i == 6 || i == 7 || i == 8 || i == 9)
