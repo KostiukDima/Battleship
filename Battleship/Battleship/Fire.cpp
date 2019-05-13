@@ -11,20 +11,17 @@ using namespace std;
 
 HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 
-void ComuterFire(int player[][10], int arrFire[][10])
+int ComuterFire(int player[][10], int arrFire[][10])
 {
-	//arrFire[0][0] = 2;
-
 	int Y = 0;
 	int X = 0;
 	int y = 0;
 	int x = 0;
+	int control = 0;
 
 	bool exit = false;
 
-	Y = rand() % 10;
-	X = rand() % 10;
-
+	
 	while (exit!=true)
 	{
 		for (int i = 0; i < 10; i++)
@@ -33,10 +30,32 @@ void ComuterFire(int player[][10], int arrFire[][10])
 			{
 				if (arrFire[i][j] == 2)
 				{
+					control += 1;
 					Y = i;
 					X = j;
 					y = i;
-					x = i;
+					x = j;
+
+					if (arrFire[Y][X - 1] == 3 && arrFire[Y][X + 1] == 0)
+					{
+						X++;
+					}
+					else if (arrFire[Y + 1][X] == 3 && arrFire[Y-1][X] == 0)
+					{
+						Y--;
+					}
+					else if (arrFire[Y][X + 1] == 3 && arrFire[Y][X - 1] == 0)
+					{
+						X--;
+					}
+					else if (arrFire[Y - 1][X] == 3 && arrFire[Y+1][X] == 0)
+					{
+						Y++;
+					}
+					else
+					{
+
+					
 					if (Y == 0)
 					{
 						if (Y == 0 && X == 0)
@@ -167,26 +186,52 @@ void ComuterFire(int player[][10], int arrFire[][10])
 							Y--;
 						}
 					}
+					}
 				}				
+					
 			}
 		}
 
-		arrFire[y][x] = 1;
+		if (control == 0)
+		{	
+			bool exitRand = false;
+			
+			while (exitRand == false)
+			{
+				Y = rand() % 10;
+				X = rand() % 10;
+				y = Y;
+				x = X;
+				if (arrFire[Y][X] == 0)
+				{
+					exitRand = true;
+				}
+			}			
+		}
+
+		
 
 		if (arrFire[Y][X]==0)
 		{
-			arrFire[Y][X] = 1;
-			if (player[Y][X] == 1 || player[Y][X] == 4)
+			exit = true;
+			if (player[Y][X] == 1)
 			{
 				player[Y][X] = 4;
 				arrFire[Y][X] = 2;
+				arrFire[y][x] = 3;
+				
+				
+				
+				return true;
 			}
 			else
 			{
+				arrFire[Y][X] = 1;
 				player[Y][X] = 3;
-			}
-			
-			exit = true;
+				
+				return false;
+
+			}			
 		}
 	}
 }

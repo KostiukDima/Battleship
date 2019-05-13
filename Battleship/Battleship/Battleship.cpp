@@ -52,39 +52,29 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 		}
 	}
 
+
 	bool exitBattle = false;
-	
+	bool hit = true;
+
 	int playerControl = 0;
 	int computerControl = 0;
 
+
+	system("cls");
+	Output(computer, player, compName, name);
+
 	while (exitBattle != true)
 	{
-		playerControl = 0;
-		computerControl = 0;
-		
-		for (int i = 0; i < 10; i++)
-		{
-			for (int j = 0; j < 10; j++)
-			{
-				if (computer[i][j] == 1)
-				{
-					computerControl = 1;
-				}
-				if (player[i][j] == 1)
-				{
-					playerControl = 1;
-				}
-			}
-		}		
 
-		if (computerControl == 1 || playerControl == 1)
+		hit = true;
+		while (hit == true)
 		{
-			if (playerControl == 1)
-			{
-				system("cls");
-				Output(computer, player, compName, name);
-				PlayerFire(computer);
-			}
+			hit = PlayerFire(computer);
+
+			Control(computer);
+
+			system("cls");
+			Output(computer, player, compName, name);
 
 			playerControl = 0;
 			computerControl = 0;
@@ -103,28 +93,63 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 					}
 				}
 			}
+
+			if (computerControl != 1 || playerControl != 1)
+			{
+				hit = false;
+				exitBattle = true;
+				continue;
+			}
+		}
+
+		hit = true;
+
+		while (hit == true)
+		{
 			system("cls");
 			Output(computer, player, compName, name);
 			SetConsoleTextAttribute(console, 12);
-			cout << "Fire of the enemy";
+			cout << "Fire of the computer";
 			SetConsoleTextAttribute(console, 7);
 			Sleep(1000);
 
-			if (computerControl == 1)
+			hit = ComuterFire(player, arrFire);
+
+			Control(player);
+
+			system("cls");
+			Output(computer, player, compName, name);
+
+			playerControl = 0;
+			computerControl = 0;
+
+			for (int i = 0; i < 10; i++)
 			{
-				ComuterFire(player, arrFire);
+				for (int j = 0; j < 10; j++)
+				{
+					if (computer[i][j] == 1)
+					{
+						computerControl = 1;
+					}
+					if (player[i][j] == 1)
+					{
+						playerControl = 1;
+					}
+				}
 			}
-		}		
-			
-		if (computerControl != 1 || playerControl != 1)
-		{
-			exitBattle = true;			
-		}	
+
+			if (computerControl != 1 || playerControl != 1)
+			{
+				hit = false;
+				exitBattle = true;
+				continue;
+			}
+		}
 	}
 
 	system("cls");
-	Output(computer, player, compName, name);
-	
+	OutputFinal(computer, player, compName, name);
+
 	if (computerControl > playerControl)
 	{
 		SetConsoleTextAttribute(console, 12);
@@ -140,7 +165,7 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 		SetConsoleTextAttribute(console, 7);
 		cin.get();
 		cin.get();
-	}
+	}	
 }
 
 void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
