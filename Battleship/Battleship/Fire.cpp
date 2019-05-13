@@ -11,22 +11,167 @@ using namespace std;
 
 HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
 
-void ComuterFire(int player[][10])
+void ComuterFire(int player[][10], int arrFire[][10])
 {
-	int arrFire[10][10];
-	Fill(arrFire);
-	   
+	//arrFire[0][0] = 2;
+
 	int Y = 0;
 	int X = 0;
+	int y = 0;
+	int x = 0;
 
 	bool exit = false;
 
-
+	Y = rand() % 10;
+	X = rand() % 10;
 
 	while (exit!=true)
 	{
-		Y = rand() % 10;
-		X = rand() % 10;
+		for (int i = 0; i < 10; i++)
+		{
+			for (int j = 0; j < 10; j++)
+			{
+				if (arrFire[i][j] == 2)
+				{
+					Y = i;
+					X = j;
+					y = i;
+					x = i;
+					if (Y == 0)
+					{
+						if (Y == 0 && X == 0)
+						{
+							if (arrFire[Y+1][X] == 0)
+							{
+								Y++;
+							}
+							else if (arrFire[Y][X + 1] == 0)
+							{
+								X++;
+							}
+						}
+						else if ((Y == 0) && (X == 1) || (X == 2) || (X == 3) || (X == 4) || (X == 5) || (X == 6) || (X == 7) || (X == 8))
+						{
+							if (arrFire[Y][X-1] == 0)
+							{
+								X--;
+							}
+							else if (arrFire[Y + 1][X] == 0)
+							{
+								Y++;
+							}
+							else if (arrFire[Y][X + 1] == 0)
+							{
+								X++;
+							}
+						}
+						else if (Y == 0 && X == 9)
+						{
+							if (arrFire[Y][X - 1] == 0)
+							{
+								X++;
+							}
+							else if (arrFire[Y + 1][X] == 0)
+							{
+								Y++;
+							}
+						}
+					}
+					else if ((Y == 1 || Y == 2 || Y == 3 || Y == 4 || Y == 5 || Y == 6 || Y == 7 || Y == 8) && X == 9)
+					{
+						if (arrFire[Y][X - 1] == 0)
+						{
+							X--;
+						}
+						else if (arrFire[Y + 1][X] == 0)
+						{
+							Y++;
+						}
+						else if (arrFire[Y-1][X] == 0)
+						{
+							Y--;
+						}
+					}
+					else if (Y == 9)
+					{
+						if (Y == 9 && X == 9)
+						{
+							if (arrFire[Y][X - 1] == 0)
+							{
+								X--;
+							}							
+							else if (arrFire[Y - 1][X] == 0)
+							{
+								Y--;
+							}
+						}
+						else if ((Y == 9) && (X == 1) || (X == 2) || (X == 3) || (X == 4) || (X == 5) || (X == 6) || (X == 7) || (X == 8))
+						{
+							if (arrFire[Y][X - 1] == 0)
+							{
+								X--;
+							}							
+							else if (arrFire[Y][X + 1] == 0)
+							{
+								X++;
+							}
+							else if (arrFire[Y - 1][X] == 0)
+							{
+								Y--;
+							}
+						}
+						else if (Y == 9 && X == 0)
+						{
+							
+							if (arrFire[Y][X + 1] == 0)
+							{
+								X++;
+							}
+							else if (arrFire[Y - 1][X] == 0)
+							{
+								Y--;
+							}
+						}
+					}
+					else if ((Y == 1 || Y == 2 || Y == 3 || Y == 4 || Y == 5 || Y == 6 || Y == 7 || Y == 8) && X == 0)
+					{
+						if (arrFire[Y + 1][X] == 0)
+						{
+							Y++;
+						}
+						else if (arrFire[Y][X + 1] == 0)
+						{
+							X++;
+						}
+						else if (arrFire[Y - 1][X] == 0)
+						{
+							Y--;
+						}
+					}
+					else
+					{
+						if (arrFire[Y][X - 1] == 0)
+						{
+							X--;
+						}
+						else if (arrFire[Y + 1][X] == 0)
+						{
+							Y++;
+						}
+						else if (arrFire[Y][X + 1] == 0)
+						{
+							X++;
+						}
+						else if (arrFire[Y - 1][X] == 0)
+						{
+							Y--;
+						}
+					}
+				}				
+			}
+		}
+
+		arrFire[y][x] = 1;
 
 		if (arrFire[Y][X]==0)
 		{
@@ -34,6 +179,7 @@ void ComuterFire(int player[][10])
 			if (player[Y][X] == 1 || player[Y][X] == 4)
 			{
 				player[Y][X] = 4;
+				arrFire[Y][X] = 2;
 			}
 			else
 			{
@@ -45,7 +191,7 @@ void ComuterFire(int player[][10])
 	}
 }
 
-void PlayerFire(int computer[][10])
+int PlayerFire(int arr[][10])
 {
 	char XY[255];
 	int Y = 0;
@@ -53,33 +199,48 @@ void PlayerFire(int computer[][10])
 
 	cout << "Enter the coordinates of the fire point (Example A1)  ";
 	cin >> XY;
-
-	if (int(XY[1]) == 49 && int(XY[2]) == 48)
+	if (XY[0] >= 65 && XY[0] <= 74)
 	{
-		Y = 9;
-		X = (int(XY[0]) - 65);
+		if (int(XY[1]) == 49 && int(XY[2]) == 48)
+		{
+			Y = 9;
+			X = (int(XY[0]) - 65);
+		}
+		else if (XY[2] != '\0')
+		{
+			SetConsoleTextAttribute(console, 12);
+			cout << "Impossible to fire";
+			SetConsoleTextAttribute(console, 7);
+			cin.get();
+			cin.get();
+			PlayerFire(arr);
+		}
+		else
+		{
+			Y = (int(XY[1]) - 49);
+			X = (int(XY[0]) - 65);
+		}
 	}
-	else if (XY[2] != '\0')
+	else
 	{
 		SetConsoleTextAttribute(console, 12);
 		cout << "Impossible to fire";
 		SetConsoleTextAttribute(console, 7);
 		cin.get();
 		cin.get();
-		PlayerFire(computer);
+		PlayerFire(arr);
 	}
-	else
+	if (XY[0] >= 65 && XY[0] <= 74)
 	{
-		Y = (int(XY[1]) - 49);
-		X = (int(XY[0]) - 65);
-	}
-	
-	if (computer[Y][X]==1|| computer[Y][X] == 4)
-	{
-		computer[Y][X] = 4;
-	}
-	else
-	{
-		computer[Y][X] = 3;
+		if (arr[Y][X] == 1 || arr[Y][X] == 4)
+		{
+			arr[Y][X] = 4;
+			return true;
+		}
+		else
+		{
+			arr[Y][X] = 3;
+			return false;
+		}
 	}
 }
