@@ -1,4 +1,4 @@
-#include "Ñontrol.h"
+#include "Control.h"
 #include"FillArray.h"
 
 void Control(int arr[][10])

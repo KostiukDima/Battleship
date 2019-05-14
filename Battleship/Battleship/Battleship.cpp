@@ -6,7 +6,7 @@
 #include"Location.h"
 #include"Output.h"
 #include"Fire.h"
-#include "Ñontrol.h"
+#include "Control.h"
 
 using namespace std;
 
