@@ -15,19 +15,26 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 {
 	char compName[]="COMPUTER";
 	char name[256];
-	cout << "Enter your name" << endl;
+	system("cls");
+	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(console, 2);
+	cout << "\n\n\n\n\n\n\n\t\t\t   Enter your name" << endl;
+	cout << "\n\t\t\t\t";
 	cin >> name;
 	int placement;
 	int arrFire[10][10];
 	Fill(arrFire);
 
-	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+	
 
 	bool exit = false;
 
 	while (exit != true)
 	{
-		cout << "Ship placement?\n1. Auto\n2. Manually" << endl;
+		system("cls");
+		SetConsoleTextAttribute(console, 2);
+		cout << "\n\n\n\n\n\n\n\t\t\t    Ship placement?\n\t\t\t  1. Auto\n\t\t\t  2. Manually" << endl;
+		cout << "\n\t\t\t\t";
 		cin >> placement;
 		if (placement == 1 || placement == 2)
 		{
@@ -35,7 +42,11 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 		}
 		else
 		{
-			cout << "Wrong choice try again" << endl;
+			SetConsoleTextAttribute(console, 12);
+			cout << "\n\t\t\tWrong choice try again" << endl;
+			SetConsoleTextAttribute(console, 7);
+			cin.get();
+			cin.get();
 		}
 
 		if (placement == 1)
@@ -52,7 +63,7 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 		}
 	}
 
-
+	SetConsoleTextAttribute(console, 7);
 	bool exitBattle = false;
 	bool hit = true;
 
@@ -171,17 +182,27 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 {
 	char nameone[256], nametwo[256];
-	cout << "Enter the name of the first player" << endl;
+	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+	system("cls");
+	SetConsoleTextAttribute(console, 3);
+
+	cout << "\n\n\n\n\n\n\n\t\t    Enter the name of the first player" << endl;
+	cout << "\n\t\t\t\t";
+
 	cin >> nameone;
 	int placement;
 
-	HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+	
 
 	bool exit = false;
 
 	while (exit != true)
 	{
-		cout << "Ship placement?\n1. Auto\n2. Manually" << endl;
+		system("cls");
+		SetConsoleTextAttribute(console, 3);
+		cout << "\n\n\n\n\n\n\n\t\t\t    Ship placement?\n\t\t\t  1. Auto\n\t\t\t  2. Manually" << endl;
+		cout << "\n\t\t\t\t";
+		
 		cin >> placement;
 		if (placement == 1 || placement == 2)
 		{
@@ -189,7 +210,11 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 		}
 		else
 		{
-			cout << "Wrong choice try again" << endl;
+			SetConsoleTextAttribute(console, 12);
+			cout << "\n\t\t\tWrong choice try again" << endl;
+			SetConsoleTextAttribute(console, 7);
+			cin.get();
+			cin.get();
 		}
 
 		if (placement == 1)
@@ -203,12 +228,22 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 	}
 	exit = false;
 
-	cout << "Enter the name of the second player" << endl;
+	system("cls");
+	SetConsoleTextAttribute(console, 3);
+
+	cout << "\n\n\n\n\n\n\n\t\t    Enter the name of the second player" << endl;
+	cout << "\n\t\t\t\t";
+
+	
 	cin >> nametwo;
 
 	while (exit != true)
 	{
-		cout << "Ship placement?\n1. Auto\n2. Manually" << endl;
+		system("cls");
+		SetConsoleTextAttribute(console, 3);
+		cout << "\n\n\n\n\n\n\n\t\t\t    Ship placement?\n\t\t\t  1. Auto\n\t\t\t  2. Manually" << endl;
+		cout << "\n\t\t\t\t";
+
 		cin >> placement;
 		if (placement == 1 || placement == 2)
 		{
@@ -216,7 +251,11 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 		}
 		else
 		{
-			cout << "Wrong choice try again" << endl;
+			SetConsoleTextAttribute(console, 12);
+			cout << "\n\t\t\tWrong choice try again" << endl;
+			SetConsoleTextAttribute(console, 7);
+			cin.get();
+			cin.get();
 		}
 
 		if (placement == 1)
@@ -234,7 +273,7 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 
 	int playerOneControl = 0;
 	int playerTwoControl = 0;
-
+	SetConsoleTextAttribute(console, 7);
 
 	system("cls");
 	OutputTwo(playerone, playertwo, nameone, nametwo);

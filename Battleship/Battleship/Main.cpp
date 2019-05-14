@@ -29,16 +29,18 @@ int main()
 	while (exit!=true)
 	{
 		system("cls");
+		SetConsoleTextAttribute(console, 9);
+		cout << "\n\n\n\n\n\t\t\t\tBATTLESHIP\n" << endl;
 		SetConsoleTextAttribute(console, 2);
-		cout << "1. Computer VS Player\n" << endl;
+		cout << "\t\t\t1. Computer VS Player\n" << endl;
 		SetConsoleTextAttribute(console, 3);
-		cout << "2. Player VS Player\n" << endl;
+		cout << "\t\t\t2. Player VS Player\n" << endl;
 		SetConsoleTextAttribute(console, 14);
-		cout << "3. Hall of Fame\n" << endl;
+		cout << "\t\t\t3. Hall of Fame\n" << endl;
 		SetConsoleTextAttribute(console, 12);
-		cout << "0. Exit\n" << endl;
+		cout << "\t\t\t0. Exit\n" << endl;
 		SetConsoleTextAttribute(console, 7);
-		cout << "Your choice   ";
+		cout << "\t\t\tYour choice   ";
 		
 		cin >> choise;
 		if (choise == 0)
@@ -60,54 +62,12 @@ int main()
 		else
 		{
 			SetConsoleTextAttribute(console, 12);
-			cout << "Wrong choice try again" << endl;
+			cout << "\n\t\t\tWrong choice try again" << endl;
+			cin.get();
+			cin.get();
 			SetConsoleTextAttribute(console, 7);			
 		}
 	}
-	/*int computerControl = 0;
-	char a[256] = "a", b[256] = "b";
-	int arrFire[10][10];
-	Fill(arrFire);
-	Fill(computer);
-	RandomLocation(computer);
 	
-	
-
-
-	bool hit = true;
-	while (hit == true)
-	{
-		system("cls");
-		Output(arrFire, computer, a, b);
-		ComuterFire(computer, arrFire);
-		cin.get();
-
-		Control(computer);
-
-		system("cls");
-		Output(arrFire, computer, a, b);
-
-		computerControl = 0;
-
-		for (int i = 0; i < 10; i++)
-		{
-			for (int j = 0; j < 10; j++)
-			{
-				if (computer[i][j] == 1)
-				{
-					computerControl = 1;
-				}				
-			}
-		}
-
-		if (computerControl != 1 )
-		{
-			hit = false;			
-			continue;
-		}
-	}
-
-
-	system("pause");*/
 	return 0;
 }

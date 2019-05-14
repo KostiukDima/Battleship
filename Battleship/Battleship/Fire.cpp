@@ -105,9 +105,7 @@ int ComuterFire(int player[][10], int arrFire[][10])
 					{
 						Y-=2;
 					}
-
-
-									   
+									   									   
 					else
 					{
 
@@ -240,6 +238,21 @@ int ComuterFire(int player[][10], int arrFire[][10])
 						else if (arrFire[Y - 1][X] == 0)
 						{
 							Y--;
+						}
+						else
+						{
+							bool exitRand = false;
+
+							while (exitRand == false)
+							{
+								Y = rand() % 10;
+								X = rand() % 10;
+
+								if (arrFire[Y][X] == 0)
+								{
+									exitRand = true;
+								}
+							}
 						}
 					}
 					}
