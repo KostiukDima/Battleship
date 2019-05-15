@@ -1,0 +1,2 @@
+Course		Player		Opponent	Date
+45		Dima		Computer	5.15.2019 11.07

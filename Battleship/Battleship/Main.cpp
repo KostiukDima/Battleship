@@ -8,6 +8,7 @@
 #include"Battleship.h"
 #include"Fire.h"
 #include"Control.h"
+#include"HallofFame.h"
 
 using namespace std;
 
@@ -57,7 +58,7 @@ int main()
 		}
 		else if (choise == 3)
 		{
-			//HallofFame
+			HallofFame();
 		}
 		else
 		{

@@ -118,6 +118,7 @@
     <ClCompile Include="Battleship.cpp" />
     <ClCompile Include="FillArray.cpp" />
     <ClCompile Include="Fire.cpp" />
+    <ClCompile Include="HallofFame.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Output.cpp" />
@@ -127,6 +128,7 @@
     <ClInclude Include="Battleship.h" />
     <ClInclude Include="FillArray.h" />
     <ClInclude Include="Fire.h" />
+    <ClInclude Include="HallofFame.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Output.h" />
     <ClInclude Include="Control.h" />

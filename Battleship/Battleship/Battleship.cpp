@@ -24,7 +24,7 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 	int placement;
 	int arrFire[10][10];
 	Fill(arrFire);
-
+	int move = 0;
 	
 
 	bool exit = false;
@@ -81,6 +81,7 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 		while (hit == true)
 		{
 			hit = PlayerFire(computer);
+			move++;
 
 			Control(computer);
 
@@ -164,7 +165,7 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 	if (computerControl > playerControl)
 	{
 		SetConsoleTextAttribute(console, 12);
-		cout << "Computer Win";
+		cout <<"Computer Win";
 		SetConsoleTextAttribute(console, 7);
 		cin.get();
 		cin.get();
@@ -176,6 +177,10 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 		SetConsoleTextAttribute(console, 7);
 		cin.get();
 		cin.get();
+		if (move<=50)
+		{
+
+		}
 	}	
 }
 
@@ -191,7 +196,7 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 
 	cin >> nameone;
 	int placement;
-
+	int moveOne = 0, moveTwo = 0;
 	
 
 	bool exit = false;
@@ -289,7 +294,7 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 			SetConsoleTextAttribute(console, 7);
 
 			hit = PlayerFire(playertwo);
-			
+			moveOne++;
 			Control(playertwo);
 			
 			system("cls");
@@ -330,7 +335,7 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 			SetConsoleTextAttribute(console, 7);
 		
 			hit = PlayerFire(playerone);
-			
+			moveTwo++;
 			Control(playerone);
 			
 			system("cls");
@@ -373,6 +378,10 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 		SetConsoleTextAttribute(console, 7);
 		cin.get();
 		cin.get();
+		if (moveOne <= 50)
+		{
+
+		}
 	}
 	else if (playerOneControl < playerTwoControl)
 	{
@@ -381,5 +390,9 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 		SetConsoleTextAttribute(console, 7);
 		cin.get();
 		cin.get();
+		if (moveTwo <= 50)
+		{
+
+		}
 	}
 }
