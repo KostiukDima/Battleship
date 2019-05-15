@@ -69,6 +69,7 @@ int main()
 			SetConsoleTextAttribute(console, 7);			
 		}
 	}
+
 	
 	return 0;
 }
