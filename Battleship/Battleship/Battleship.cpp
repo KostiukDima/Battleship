@@ -7,7 +7,7 @@
 #include"Output.h"
 #include"Fire.h"
 #include "Control.h"
-
+#include"HallofFame.h"
 using namespace std;
 
 
@@ -35,6 +35,7 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 		SetConsoleTextAttribute(console, 2);
 		cout << "\n\n\n\n\n\n\n\t\t\t    Ship placement?\n\t\t\t  1. Auto\n\t\t\t  2. Manually" << endl;
 		cout << "\n\t\t\t\t";
+		SetConsoleTextAttribute(console, 7);
 		cin >> placement;
 		if (placement == 1 || placement == 2)
 		{
@@ -179,7 +180,8 @@ void ComputerVsPlayer(int computer[][10], int player[][10])
 		cin.get();
 		if (move<=50)
 		{
-
+			char namecom[] = "Computer";
+			WriteHallofFame(move, name, namecom);
 		}
 	}	
 }
@@ -380,7 +382,7 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 		cin.get();
 		if (moveOne <= 50)
 		{
-
+			WriteHallofFame(moveOne, nameone, nametwo);
 		}
 	}
 	else if (playerOneControl < playerTwoControl)
@@ -392,7 +394,7 @@ void PlayerVsPlayer(int playerone[][10], int playertwo[][10])
 		cin.get();
 		if (moveTwo <= 50)
 		{
-
+			WriteHallofFame(moveTwo, nametwo, nameone);
 		}
 	}
 }

@@ -7,11 +7,11 @@ void Control(int arr[][10])
 	{
 		for (int j = 0; j < 10; j++)
 		{
-			if (arr[i][j-1] != 4 && arr[i][j - 1] != 1 && arr[i][j] == 4 && arr[i][j + 1] == 4 && arr[i][j + 2] == 4 && arr[i][j + 3] == 4 && arr[i][j + 4] != 4 && arr[i][j + 4] != 1)
+			if (arr[i][j] == 4 && arr[i][j + 1] == 4 && arr[i][j + 2] == 4 && arr[i][j + 3] == 4 )
 			{
 				FillHorizontallyFour(arr, i, j, 4, 3);
 			}
-			else if (arr[i-1][j] != 4 && arr[i - 1][j] != 1 && arr[i][j] == 4 && arr[i+1][j] == 4 && arr[i+2][j] == 4 && arr[i+3][j] == 4 && arr[i + 4][j] != 4 && arr[i + 4][j] != 1)
+			else if ( arr[i][j] == 4 && arr[i+1][j] == 4 && arr[i+2][j] == 4 && arr[i+3][j] == 4 )
 			{
 				FillVerticallyFour(arr, i, j, 4, 3);
 			}

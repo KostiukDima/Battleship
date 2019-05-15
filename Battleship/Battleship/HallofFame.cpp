@@ -2,6 +2,10 @@
 #include<string>
 #include<fstream>
 #include "HallofFame.h"
+#include <Windows.h>
+#include <stdio.h>
+#include <time.h>
+
 
 using namespace std;
 void HallofFame()
@@ -38,4 +42,25 @@ void HallofFame()
 	cin.get();
 	cin.get();
 	
+}
+
+void WriteHallofFame(int move, char nameWin[], char opponent[])
+{
+	string  fame = "HallofFame.txt";
+	ofstream writeFile;
+	writeFile.open(fame, ofstream::app);
+
+	SYSTEMTIME st;
+	GetSystemTime(&st);
+	
+	
+	if (!writeFile.is_open())
+	{
+		cout << "Dotn open file" << endl;
+	}
+	else
+	{
+		writeFile << "\n"<<move<<"\t\t"<<nameWin<<"\t\t"<<opponent<<"\t"<<st.wDay<<"."<<st.wMonth<<"."<<st.wYear;
+	}
+	writeFile.close();
 }
